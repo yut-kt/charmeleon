@@ -5,6 +5,7 @@ description = "charmeleon is a character conversion library in Python."
 authors = ["yut-kt <yut.kt59@gmail.com>"]
 readme = "README.md"
 license = "MIT"
+repository = "https://github.com/yut-kt/charmeleon"
 
 [tool.poetry.dependencies]
 python = "^3.12"
