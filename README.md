@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="asset/logo.png" alt="charmeleon logo" style="width: 50%">
+    <img src="https://raw.githubusercontent.com/yut-kt/charmeleon/main/asset/logo.png" alt="charmeleon logo" style="width: 50%">
     <h2>
         <strong>charmeleon</strong> is a character conversion library in Python.
     </h2>
