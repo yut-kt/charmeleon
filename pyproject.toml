@@ -8,6 +8,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.0.292"
+
 [tool.poetry-dynamic-versioning]
 enable = true
 
