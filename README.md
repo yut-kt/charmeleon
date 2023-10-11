@@ -1,4 +1,4 @@
-<div style="text-align: center">
+<div align="center">
     <img src="asset/logo.png" alt="charmeleon logo" style="width: 50%">
     <h2>
         <strong>charmeleon</strong> is a character conversion library in Python.
