@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "charmeleon"
 version = "0.0.0"
-description = ""
+description = "charmeleon is a character conversion library in Python."
 authors = ["yut-kt <yut.kt59@gmail.com>"]
 readme = "README.md"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.12"
