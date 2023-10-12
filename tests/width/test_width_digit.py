@@ -24,6 +24,8 @@ class TestWidthDigit(unittest.TestCase):
              Width(digit=True, alpha=True, punct=False, kana=True)),
             ("digit, punct and kana",
              Width(digit=True, alpha=False, punct=True, kana=True)),
+            ("all",
+             Width(digit=True, alpha=True, punct=True, kana=True)),
         ]
 
         self.digit_false_widths = [
@@ -74,7 +76,3 @@ class TestWidthDigit(unittest.TestCase):
         for name, width in self.digit_false_widths:
             with self.subTest(name=name):
                 self.assertEqual(expected, width.to_half(arg))
-
-
-if __name__ == "__main__":
-    unittest.main()

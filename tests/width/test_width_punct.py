@@ -25,6 +25,8 @@ class TestWidthPunct(unittest.TestCase):
              Width(digit=True, alpha=False, punct=True, kana=True)),
             ("punct, alpha and kana",
              Width(digit=False, alpha=True, punct=True, kana=True)),
+            ("all",
+             Width(digit=True, alpha=True, punct=True, kana=True)),
         ]
 
         self.punct_false_widths = [
@@ -75,7 +77,3 @@ class TestWidthPunct(unittest.TestCase):
         for name, width in self.punct_false_widths:
             with self.subTest(name=name):
                 self.assertEqual(expected, width.to_half(arg))
-
-
-if __name__ == "__main__":
-    unittest.main()

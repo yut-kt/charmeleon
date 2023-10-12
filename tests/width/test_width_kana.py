@@ -24,6 +24,8 @@ class TestWidthKana(unittest.TestCase):
              Width(digit=True, alpha=False, punct=True, kana=True)),
             ("kana, alpha and punct",
              Width(digit=False, alpha=True, punct=True, kana=True)),
+            ("all",
+             Width(digit=True, alpha=True, punct=True, kana=True)),
         ]
 
         self.kana_false_widths = [
@@ -88,7 +90,3 @@ class TestWidthKana(unittest.TestCase):
         for name, width in self.kana_false_widths:
             with self.subTest(name=name):
                 self.assertEqual(expected, width.to_half(arg))
-
-
-if __name__ == "__main__":
-    unittest.main()

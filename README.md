@@ -7,6 +7,7 @@
         <img src="https://img.shields.io/pypi/v/charmeleon" alt="PyPI - Version">
     </a>
     <img src="https://github.com/yut-kt/charmeleon/actions/workflows/push-main-ci.yaml/badge.svg" alt="workflow" />
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yut-kt/charmeleon/main/asset/coverage.json" alt="coverage" />
     <a href="https://opensource.org/licenses/MIT">
         <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
     </a>
