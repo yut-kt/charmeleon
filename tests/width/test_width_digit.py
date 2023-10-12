@@ -54,9 +54,10 @@ class TestWidthDigit(unittest.TestCase):
     def test_digit_false_to_full(self: "TestWidthDigit") -> None:
         """Test converting digit to full-width."""
         arg = "0123456789"
+        expected = "0123456789"
         for name, width in self.digit_false_widths:
             with self.subTest(name=name):
-                width.to_full(arg)
+                self.assertEqual(expected, width.to_full(arg))
 
     def test_digit_true_to_half(self: "TestWidthDigit") -> None:
         """Test converting digit to half-width."""
