@@ -1,0 +1,17 @@
+"""Auto generated Punctuation Table."""
+
+
+HALF2FULL = {
+    {% for half_char in punct_half_chars -%}
+    {{ half_char | py_str }}: {{ punct_full_chars[loop.index0] | py_str }},{% if (loop.index) % 7 == 0 %}
+    {% elif loop.last %}{% else %} {% endif %}
+    {%- endfor %}
+}
+
+FULL2HALF = {
+    {% for full_char in punct_full_chars -%}
+    {{ full_char | py_str }}: {{ punct_half_chars[loop.index0] | py_str }},{% if (loop.index) % 7 == 0 %}
+    {% elif loop.last %}{% else %} {% endif %}
+    {%- endfor %}
+}
+
