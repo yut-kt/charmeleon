@@ -13,6 +13,8 @@ python = "^3.12"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.292"
 pre-commit = "^3.4.0"
+jinja2 = "^3.1.2"
+coverage = "^7.3.2"
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -23,3 +25,10 @@ build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.ruff]
 select = ["ALL"]
+ignore = ["FBT", "PT", "S701", "D203", "D212"]
+target-version = "py312"
+
+[tool.ruff.per-file-ignores]
+"./charmeleon/table/*.py" = ["RUF001"]
+"./scripts/*.py" = ["INP001"]
+"./tests/**/*.py" = ["S101", "PT009", "RUF001"]

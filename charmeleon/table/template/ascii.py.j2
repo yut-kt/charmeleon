@@ -1,0 +1,16 @@
+"""Auto generated ASCII Table."""
+
+HALF2FULL = {
+    {% for i in range(94) -%}
+    {{ ascii_half_chars[i] | py_str }}: {{ ascii_full_chars[i] | py_str }},{% if (i + 1) % 7 == 0 %}
+    {% elif loop.last %}{% else %} {% endif %}
+    {%- endfor %}
+}
+
+FULL2HALF = {
+    {% for i in range(94) -%}
+    {{ ascii_full_chars[i] | py_str }}: {{ ascii_half_chars[i] | py_str }},{% if (i + 1) % 7 == 0 %}
+    {% elif loop.last %}{% else %} {% endif %}
+    {%- endfor %}
+}
+
