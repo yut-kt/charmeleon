@@ -3,6 +3,7 @@ import random
 import unittest
 
 from charmeleon import Width
+from charmeleon.error import ArgError
 from charmeleon.table import alpha, digit, kana, punct
 
 
@@ -35,6 +36,11 @@ class TestWidthAlpha(unittest.TestCase):
             expected = "".join([half for half, full in half_full_tuples])
             with self.subTest(name=f"for {i}"):
                 self.assertEqual(expected, self.width.to_half(arg))
+
+    def test_fail_init(self: "TestWidthAlpha") -> None:
+        """Test fail init."""
+        with self.assertRaises(ArgError):
+            Width(digit=False, alpha=False, punct=False, kana=False)
 
 
 if __name__ == "__main__":
