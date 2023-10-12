@@ -37,6 +37,7 @@ class Width:
         self.__h2f_pattern = re.compile("|".join(map(re.escape, self.__h2f.keys())))
         self.__f2h_pattern = re.compile("|".join(map(re.escape, self.__f2h.keys())))
 
+
     def __h2f_replace(self: "Width", match: re.Match) -> str:
         """Replace function for re.sub."""
         return self.__h2f[match.group(0)]
