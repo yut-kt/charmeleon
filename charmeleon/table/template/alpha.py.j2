@@ -1,15 +1,15 @@
 """Auto generated Alphabet Table."""
 
 HALF2FULL = {
-    {% for i in range(26) -%}
-    {{ alpha_half_chars[i] | py_str }}: {{ alpha_full_chars[i] | py_str }},{% if (i + 1) % 7 == 0 %}
+    {% for half_char in alpha_half_chars -%}
+    {{ half_char | py_str }}: {{ alpha_full_chars[loop.index0] | py_str }},{% if loop.index % 7 == 0 %}
     {% elif loop.last %}{% else %} {% endif %}
     {%- endfor %}
 }
 
 FULL2HALF = {
-    {% for i in range(26) -%}
-    {{ alpha_full_chars[i] | py_str }}: {{ alpha_half_chars[i] | py_str }},{% if (i + 1) % 7 == 0 %}
+    {% for full_char in alpha_full_chars -%}
+    {{ full_char | py_str }}: {{ alpha_half_chars[loop.index0] | py_str }},{% if loop.index % 7 == 0 %}
     {% elif loop.last %}{% else %} {% endif %}
     {%- endfor %}
 }
