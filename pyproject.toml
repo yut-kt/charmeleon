@@ -24,7 +24,8 @@ build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.ruff]
 select = ["ALL"]
-ignore = ["FBT", "S701", "D203", "D212"]
+ignore = ["FBT", "PT", "S701", "D203", "D212"]
+target-version = "py312"
 
 [tool.ruff.per-file-ignores]
 "./charmeleon/table/*.py" = ["RUF001"]
