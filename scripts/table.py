@@ -41,17 +41,17 @@ def get_chars_dict() -> dict:
                             [chr(0xFF3B + i) for i in range(6)] +
                             [chr(0xFF5B + i) for i in range(4)],
         "kana_half_chars":
-            [chr(0xFF61 + i) for i in range(56)] +
-            [chr(0xFF61 + i) + chr(0xFF9E) for i in range(56)
+            [chr(0xFF61 + i) + chr(0xFF9E) for i in range(63)
              if len(normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9E))) == 1] +
-            [chr(0xFF61 + i) + chr(0xFF9F) for i in range(56)
-             if len(normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9F))) == 1],
+            [chr(0xFF61 + i) + chr(0xFF9F) for i in range(63)
+             if len(normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9F))) == 1] +
+            [chr(0xFF61 + i) for i in range(63)],
         "kana_full_chars":
-            [normalize("NFKC", chr(0xFF61 + i)) for i in range(56)] +
-            [normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9E)) for i in range(56)
+            [normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9E)) for i in range(63)
              if len(normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9E))) == 1] +
-            [normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9F)) for i in range(56)
-             if len(normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9F))) == 1],
+            [normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9F)) for i in range(63)
+             if len(normalize("NFKC", chr(0xFF61 + i) + chr(0xFF9F))) == 1] +
+            [normalize("NFKC", chr(0xFF61 + i)) for i in range(63)],
     }
 
 
