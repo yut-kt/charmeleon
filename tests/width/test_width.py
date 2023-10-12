@@ -41,7 +41,3 @@ class TestWidthAlpha(unittest.TestCase):
         """Test fail init."""
         with self.assertRaises(ArgError):
             Width(digit=False, alpha=False, punct=False, kana=False)
-
-
-if __name__ == "__main__":
-    unittest.main()

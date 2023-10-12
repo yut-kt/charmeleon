@@ -77,7 +77,3 @@ class TestWidthPunct(unittest.TestCase):
         for name, width in self.punct_false_widths:
             with self.subTest(name=name):
                 self.assertEqual(expected, width.to_half(arg))
-
-
-if __name__ == "__main__":
-    unittest.main()
