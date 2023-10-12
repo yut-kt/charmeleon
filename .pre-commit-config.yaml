@@ -3,3 +3,9 @@ repos:
     rev: v0.0.292
     hooks:
       - id: ruff
+  - repo: local
+    hooks:
+      - id: check-coverage
+        name: Check Coverage
+        entry: ./scripts/check-coverage.sh
+        language: script
