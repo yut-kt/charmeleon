@@ -24,6 +24,8 @@ class TestWidthDigit(unittest.TestCase):
              Width(digit=True, alpha=True, punct=False, kana=True)),
             ("digit, punct and kana",
              Width(digit=True, alpha=False, punct=True, kana=True)),
+            ("all",
+             Width(digit=True, alpha=True, punct=True, kana=True)),
         ]
 
         self.digit_false_widths = [

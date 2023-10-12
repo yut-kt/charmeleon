@@ -24,6 +24,8 @@ class TestWidthKana(unittest.TestCase):
              Width(digit=True, alpha=False, punct=True, kana=True)),
             ("kana, alpha and punct",
              Width(digit=False, alpha=True, punct=True, kana=True)),
+            ("all",
+             Width(digit=True, alpha=True, punct=True, kana=True)),
         ]
 
         self.kana_false_widths = [

@@ -25,6 +25,8 @@ class TestWidthPunct(unittest.TestCase):
              Width(digit=True, alpha=False, punct=True, kana=True)),
             ("punct, alpha and kana",
              Width(digit=False, alpha=True, punct=True, kana=True)),
+            ("all",
+             Width(digit=True, alpha=True, punct=True, kana=True)),
         ]
 
         self.punct_false_widths = [
