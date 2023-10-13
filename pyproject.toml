@@ -6,6 +6,7 @@ authors = ["yut-kt <yut.kt59@gmail.com>"]
 readme = "README.md"
 license = "MIT"
 repository = "https://github.com/yut-kt/charmeleon"
+exclude = ["charmeleon/table/template"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -15,6 +16,8 @@ ruff = "^0.0.292"
 pre-commit = "^3.4.0"
 jinja2 = "^3.1.2"
 coverage = "^7.3.2"
+sphinx = "^7.2.6"
+sphinx-rtd-theme = "^1.3.0"
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -25,10 +28,11 @@ build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.ruff]
 select = ["ALL"]
-ignore = ["FBT", "PT", "S701", "D203", "D212"]
+ignore = ["FBT", "PT", "S701", "D203", "D212", "RUF002"]
 target-version = "py312"
 
 [tool.ruff.per-file-ignores]
 "./charmeleon/table/*.py" = ["RUF001"]
 "./scripts/*.py" = ["INP001"]
 "./tests/**/*.py" = ["S101", "PT009", "RUF001"]
+"./docs/**/*.py" = ["INP001"]
