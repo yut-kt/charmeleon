@@ -16,7 +16,20 @@ class Width:
                  alpha: bool = True,
                  punct: bool = True,
                  kana: bool = True) -> None:
-        """Initialize Width class."""
+        """
+        Initialize Width class.
+
+        Args:
+        ----
+            digit (bool): True if digit characters are used.
+            alpha (bool): True if alphabet characters are used.
+            punct (bool): True if punctuation characters are used.
+            kana (bool): True if kana characters are used.
+
+        Raises:
+        ------
+            ArgError: If all of digit, alpha, punct and kana are False.
+        """
         if not any({digit, alpha, punct, kana}):
             msg = "At least one of digit, alpha, punct or kana must be True."
             raise ArgError(msg)
@@ -44,12 +57,46 @@ class Width:
         return self.__hs2f[match.group(0)]
 
     def to_full(self: "Width", chars: str) -> str:
-        """Convert half-width characters to full-width characters."""
+        """
+        Convert half-width characters to full-width characters.
+
+        Args:
+        ----
+            chars (str): Characters to be converted.
+
+        Returns:
+        -------
+            str: Converted characters.
+
+        Examples:
+        --------
+            >>> from charmeleon import Width
+            >>> width = Width()
+            >>> width.to_full("abc")
+            'ａｂｃ'
+        """
         if self.__hs2f_pattern:
             return (self.__hs2f_pattern.sub(self.__h2f_replace, chars)
                     .translate(self.__h2f_table))
         return chars.translate(self.__h2f_table)
 
     def to_half(self: "Width", chars: str) -> str:
-        """Convert full-width characters to half-width characters."""
+        """
+        Convert full-width characters to half-width characters.
+
+        Args:
+        ----
+            chars (str): Characters to be converted.
+
+        Returns:
+        -------
+            str: Converted characters.
+
+        Examples:
+        --------
+            >>> from charmeleon import Width
+            >>> width = Width()
+            >>> width.to_half("ＡＢＣ")
+            'ABC'
+        """
         return chars.translate(self.__f2h_table)
