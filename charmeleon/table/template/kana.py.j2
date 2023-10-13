@@ -3,6 +3,15 @@
 
 HALF2FULL = {
     {% for half_char in kana_half_chars -%}
+    {%- if half_char | length == 1 -%}
+    {{ half_char | py_str }}: {{ kana_full_chars[loop.index0] | py_str }},{% if (loop.index) % 6 == 0 %}
+    {% elif loop.last %}{% else %} {% endif %}
+    {%- endif -%}
+    {%- endfor %}
+}
+
+HALFS2FULL = {
+    {% for half_char in kana_half_chars | filter_by_upper_len(2) -%}
     {{ half_char | py_str }}: {{ kana_full_chars[loop.index0] | py_str }},{% if (loop.index) % 6 == 0 %}
     {% elif loop.last %}{% else %} {% endif %}
     {%- endfor %}

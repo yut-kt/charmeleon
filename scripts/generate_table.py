@@ -10,7 +10,7 @@ def main() -> None:
     table_path = pathlib.Path("../charmeleon/table")
 
     j2_env = Environment(loader=FileSystemLoader(table_path / "template"))
-    j2_env.filters = {"py_str": py_str}
+    j2_env.filters |= {"py_str": py_str, "filter_by_upper_len": filter_by_upper_len}
 
     chars_dict = get_chars_dict()
     for template_file in j2_env.list_templates():
@@ -56,13 +56,17 @@ def get_chars_dict() -> dict:
 
 
 def py_str(char: str) -> str:
-    """特定の文字だけをエスケープする関数."""
-    # 特定の文字だけをエスケープするロジックを書く
+    """Escape python characters."""
     if char == "\\":
         return '"\\' + char + '"'
     if char == '"':
         return "'" + char + "'"
     return '"' + char + '"'
+
+
+def filter_by_upper_len(chars: list, length: int) -> list:
+    """Filter by length."""
+    return [char for char in chars if len(char) >= length]
 
 
 if __name__ == "__main__":
