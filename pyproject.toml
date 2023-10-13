@@ -6,6 +6,7 @@ authors = ["yut-kt <yut.kt59@gmail.com>"]
 readme = "README.md"
 license = "MIT"
 repository = "https://github.com/yut-kt/charmeleon"
+exclude = ["charmeleon/table/template"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
