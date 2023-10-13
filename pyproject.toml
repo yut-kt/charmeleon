@@ -7,6 +7,7 @@ readme = "README.md"
 license = "MIT"
 repository = "https://github.com/yut-kt/charmeleon"
 exclude = ["charmeleon/table/template"]
+homepage = "https://yut-kt.github.io/charmeleon/"
 
 [tool.poetry.dependencies]
 python = "^3.12"
