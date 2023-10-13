@@ -8,6 +8,9 @@ license = "MIT"
 repository = "https://github.com/yut-kt/charmeleon"
 exclude = ["charmeleon/table/template"]
 homepage = "https://yut-kt.github.io/charmeleon/"
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
