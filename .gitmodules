@@ -1,0 +1,4 @@
+[submodule "docs/build/html"]
+	path = docs/build/html
+	url = https://github.com/yut-kt/charmeleon.git
+	branch = gh-pages
