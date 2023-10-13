@@ -1,6 +1,7 @@
 .PHONY: install
 install:
-	poetry insatll
+	python -m pip install --upgrade setuptools pip poetry
+	python -m poetry install
 	pre-commit install
 
 .PHONY: coverage

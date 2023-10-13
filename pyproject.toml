@@ -8,9 +8,12 @@ license = "MIT"
 repository = "https://github.com/yut-kt/charmeleon"
 exclude = ["charmeleon/table/template"]
 homepage = "https://yut-kt.github.io/charmeleon/"
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.292"
@@ -30,7 +33,7 @@ build-backend = "poetry_dynamic_versioning.backend"
 [tool.ruff]
 select = ["ALL"]
 ignore = ["FBT", "PT", "S701", "D203", "D212", "RUF002"]
-target-version = "py312"
+target-version = "py39"
 
 [tool.ruff.per-file-ignores]
 "./charmeleon/table/*.py" = ["RUF001"]
