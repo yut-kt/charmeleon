@@ -3,10 +3,11 @@ name = "charmeleon"
 version = "0.0.0"
 description = "charmeleon is a character conversion library in Python."
 authors = ["yut-kt <yut.kt59@gmail.com>"]
-readme = "README.md"
+readme = "README.rst"
 license = "MIT"
 repository = "https://github.com/yut-kt/charmeleon"
 exclude = ["charmeleon/table/template"]
+homepage = "https://yut-kt.github.io/charmeleon/"
 
 [tool.poetry.dependencies]
 python = "^3.12"
