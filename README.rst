@@ -14,7 +14,7 @@ Install
 #######
 .. code-block:: bash
 
-    pip install charmeleon
+    $ pip install charmeleon
 
 #####
 Usage
