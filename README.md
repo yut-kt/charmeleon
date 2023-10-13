@@ -13,4 +13,4 @@ $ pip install charmeleon
  ```
 
 # Usage
-Please read the [Document](https://yut-kt.github.io/charmeleon/modules.html>).
+Please read the [Document](https://yut-kt.github.io/charmeleon/modules.html).
