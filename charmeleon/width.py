@@ -1,4 +1,5 @@
 """Width class for handling width of characters."""
+import pathlib
 import re
 
 import charmeleon.table.alpha
@@ -11,11 +12,12 @@ from charmeleon.error import ArgError
 class Width:
     """Width class for handling width of characters."""
 
-    def __init__(self: "Width",
+    def __init__(self: "Width",  # noqa: PLR0913
                  digit: bool = True,
                  alpha: bool = True,
                  punct: bool = True,
-                 kana: bool = True) -> None:
+                 kana: bool = True,
+                 go: bool = False) -> None:
         """
         Initialize Width class.
 
@@ -25,6 +27,7 @@ class Width:
             alpha (bool): True if alphabet characters are used.
             punct (bool): True if punctuation characters are used.
             kana (bool): True if kana characters are used.
+            go (bool): True if golang's width functions are used.
 
         Raises:
         ------
@@ -51,6 +54,19 @@ class Width:
             self.__hs2f = charmeleon.table.kana.HALFS2FULL
             self.__hs2f_pattern = re.compile(
                 "|".join(map(re.escape, self.__hs2f.keys())))
+        if go:
+            from ctypes import c_char_p, cdll
+            path = pathlib.Path(__file__).parent / "go/main.so"
+            lib = cdll.LoadLibrary(path.as_posix())
+            self.__narrow = lib.Narrow
+            self.__narrow.argtypes = [c_char_p]
+            self.__narrow.restype = c_char_p
+            self.__widen = lib.Widen
+            self.__widen.argtypes = [c_char_p]
+            self.__widen.restype = c_char_p
+            self.__fold = lib.Fold
+            self.__fold.argtypes = [c_char_p]
+            self.__fold.restype = c_char_p
 
     def __h2f_replace(self: "Width", match: re.Match) -> str:
         """Replace function for re.sub."""
@@ -100,3 +116,75 @@ class Width:
             'ABC'
         """
         return chars.translate(self.__f2h_table)
+
+    def narrow(self: "Width", chars: str) -> str:
+        """
+        narrow function is a proxy for golang's Narrow function.
+
+        Narrow is a transform that maps runes to their narrow variant, if available.
+        See https://pkg.go.dev/golang.org/x/text/width#Narrow.
+
+        Args:
+        ----
+            chars (str): Characters to be converted.
+
+        Returns:
+        -------
+            str: Converted characters.
+
+        Examples:
+        --------
+            >>> from charmeleon import Width
+            >>> width = Width(go=True)
+            >>> width.narrow("abヲ￦○￥Ａ")
+            'abｦ₩￮¥A'
+        """
+        return self.__narrow(chars.encode()).decode()
+
+    def widen(self: "Width", chars: str) -> str:
+        """
+        widen function is a proxy for golang's Widen function.
+
+        Widen is a transform that maps runes to their wide variant, if available.
+        See https://pkg.go.dev/golang.org/x/text/width#Widen.
+
+        Args:
+        ----
+            chars (str): Characters to be converted.
+
+        Returns:
+        -------
+            str: Converted characters.
+
+        Examples:
+        --------
+            >>> from charmeleon import Width
+            >>> width = Width(go=True)
+            >>> width.widen("ab¥ｦ₩￮")
+            'ab¥ヲ￦○'
+        """
+        return self.__widen(chars.encode()).decode()
+
+    def fold(self: "Width", chars: str) -> str:
+        """
+        fold function is a proxy for golang's Fold function.
+
+        Fold is a transform that maps all runes to their canonical width.
+        See https://pkg.go.dev/golang.org/x/text/width#Fold.
+
+        Args:
+        ----
+            chars (str): Characters to be converted.
+
+        Returns:
+        -------
+            str: Converted characters.
+
+        Examples:
+        --------
+            >>> from charmeleon import Width
+            >>> width = Width(go=True)
+            >>> width.fold("abｦ￦￮￥Ａ")
+            'abヲ₩○¥A'
+        """
+        return self.__fold(chars.encode()).decode()
