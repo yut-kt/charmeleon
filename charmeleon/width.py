@@ -55,8 +55,20 @@ class Width:
             self.__hs2f_pattern = re.compile(
                 "|".join(map(re.escape, self.__hs2f.keys())))
         if go:
+            import platform
             from ctypes import c_char_p, cdll
-            path = pathlib.Path(__file__).parent / "go/main.so"
+            system = platform.system().lower()
+            machine = platform.machine().lower()
+            if system not in {"linux", "darwin"}:
+                msg = (f"Unsupported system: {system}."
+                       "go option is supported only for Linux and Darwin.")
+                raise ArgError(msg)
+            if machine not in {"x86_64", "arm64"}:
+                msg = (f"Unsupported machine: {machine}."
+                       "go option is supported only for x86_64 and arm64.")
+                raise ArgError(msg)
+            machine = "amd64" if machine == "x86_64" else "arm64"
+            path = pathlib.Path(__file__).parent / f"go/{system}_{machine}"
             lib = cdll.LoadLibrary(path.as_posix())
             self.__narrow = lib.Narrow
             self.__narrow.argtypes = [c_char_p]

@@ -1,6 +1,7 @@
 """Testcase for width.py."""
 import random
 import unittest
+from unittest.mock import MagicMock, patch
 
 from charmeleon import Width
 from charmeleon.error import ArgError
@@ -41,6 +42,18 @@ class TestWidth(unittest.TestCase):
         """Test fail init."""
         with self.assertRaises(ArgError):
             Width(digit=False, alpha=False, punct=False, kana=False)
+
+    @patch("platform.system", return_value="Windows")
+    def test_fail_init_go_system(self: "TestWidth", _: MagicMock) -> None:
+        """Test fail init."""
+        with self.assertRaises(ArgError):
+            Width(go=True)
+
+    @patch("platform.machine", return_value="386")
+    def test_fail_init_go_machine(self: "TestWidth", _: MagicMock) -> None:
+        """Test fail init."""
+        with self.assertRaises(ArgError):
+            Width(go=True)
 
     def test_narrow(self: "TestWidth") -> None:
         """Test golang narrow."""
