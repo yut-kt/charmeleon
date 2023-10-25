@@ -91,12 +91,14 @@
 <p>charmeleon src package.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="charmeleon.Width">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">charmeleon.</span></span><span class="sig-name descname"><span class="pre">Width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">digit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">punct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kana</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmeleon.Width" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">charmeleon.</span></span><span class="sig-name descname"><span class="pre">Width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">digit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">punct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kana</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">go</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmeleon.Width" title="Link to this definition"></a></dt>
 <dd><p>Width class for handling width of characters.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="charmeleon.Width.to_full">
-<span class="sig-name descname"><span class="pre">to_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#charmeleon.Width.to_full" title="Link to this definition"></a></dt>
-<dd><p>Convert half-width characters to full-width characters.</p>
+<dt class="sig sig-object py" id="charmeleon.Width.fold">
+<span class="sig-name descname"><span class="pre">fold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#charmeleon.Width.fold" title="Link to this definition"></a></dt>
+<dd><p>fold function is a proxy for golang’s Fold function.</p>
+<p>Fold is a transform that maps all runes to their canonical width.
+See <a class="reference external" href="https://pkg.go.dev/golang.org/x/text/width#Fold">https://pkg.go.dev/golang.org/x/text/width#Fold</a>.</p>
 <section id="args">
 <h3>Args:<a class="headerlink" href="#args" title="Link to this heading"></a></h3>
 <blockquote>
@@ -112,18 +114,20 @@
 <section id="examples">
 <h3>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">charmeleon</span> <span class="kn">import</span> <span class="n">Width</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="n">Width</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="o">.</span><span class="n">to_full</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
-<span class="go">&#39;ａｂｃ&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="n">Width</span><span class="p">(</span><span class="n">go</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="o">.</span><span class="n">fold</span><span class="p">(</span><span class="s2">&quot;abｦ￦￮￥Ａ&quot;</span><span class="p">)</span>
+<span class="go">&#39;abヲ₩○¥A&#39;</span>
 </pre></div>
 </div>
 </section>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmeleon.Width.to_half">
-<span class="sig-name descname"><span class="pre">to_half</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#charmeleon.Width.to_half" title="Link to this definition"></a></dt>
-<dd><p>Convert full-width characters to half-width characters.</p>
+<dt class="sig sig-object py" id="charmeleon.Width.narrow">
+<span class="sig-name descname"><span class="pre">narrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#charmeleon.Width.narrow" title="Link to this definition"></a></dt>
+<dd><p>narrow function is a proxy for golang’s Narrow function.</p>
+<p>Narrow is a transform that maps runes to their narrow variant, if available.
+See <a class="reference external" href="https://pkg.go.dev/golang.org/x/text/width#Narrow">https://pkg.go.dev/golang.org/x/text/width#Narrow</a>.</p>
 <section id="id1">
 <h3>Args:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <blockquote>
@@ -139,9 +143,92 @@
 <section id="id3">
 <h3>Examples:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">charmeleon</span> <span class="kn">import</span> <span class="n">Width</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="n">Width</span><span class="p">(</span><span class="n">go</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="o">.</span><span class="n">narrow</span><span class="p">(</span><span class="s2">&quot;abヲ￦○￥Ａ&quot;</span><span class="p">)</span>
+<span class="go">&#39;abｦ₩￮¥A&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmeleon.Width.to_full">
+<span class="sig-name descname"><span class="pre">to_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#charmeleon.Width.to_full" title="Link to this definition"></a></dt>
+<dd><p>Convert half-width characters to full-width characters.</p>
+<section id="id4">
+<h3>Args:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>chars (str): Characters to be converted.</p>
+</div></blockquote>
+</section>
+<section id="id5">
+<h3>Returns:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>str: Converted characters.</p>
+</div></blockquote>
+</section>
+<section id="id6">
+<h3>Examples:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">charmeleon</span> <span class="kn">import</span> <span class="n">Width</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="n">Width</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="o">.</span><span class="n">to_full</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="go">&#39;ａｂｃ&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmeleon.Width.to_half">
+<span class="sig-name descname"><span class="pre">to_half</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#charmeleon.Width.to_half" title="Link to this definition"></a></dt>
+<dd><p>Convert full-width characters to half-width characters.</p>
+<section id="id7">
+<h3>Args:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>chars (str): Characters to be converted.</p>
+</div></blockquote>
+</section>
+<section id="id8">
+<h3>Returns:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>str: Converted characters.</p>
+</div></blockquote>
+</section>
+<section id="id9">
+<h3>Examples:<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">charmeleon</span> <span class="kn">import</span> <span class="n">Width</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="n">Width</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="o">.</span><span class="n">to_half</span><span class="p">(</span><span class="s2">&quot;ＡＢＣ&quot;</span><span class="p">)</span>
 <span class="go">&#39;ABC&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmeleon.Width.widen">
+<span class="sig-name descname"><span class="pre">widen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#charmeleon.Width.widen" title="Link to this definition"></a></dt>
+<dd><p>widen function is a proxy for golang’s Widen function.</p>
+<p>Widen is a transform that maps runes to their wide variant, if available.
+See <a class="reference external" href="https://pkg.go.dev/golang.org/x/text/width#Widen">https://pkg.go.dev/golang.org/x/text/width#Widen</a>.</p>
+<section id="id10">
+<h3>Args:<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>chars (str): Characters to be converted.</p>
+</div></blockquote>
+</section>
+<section id="id11">
+<h3>Returns:<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>str: Converted characters.</p>
+</div></blockquote>
+</section>
+<section id="id12">
+<h3>Examples:<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">charmeleon</span> <span class="kn">import</span> <span class="n">Width</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="n">Width</span><span class="p">(</span><span class="n">go</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span><span class="o">.</span><span class="n">widen</span><span class="p">(</span><span class="s2">&quot;ab¥ｦ₩￮&quot;</span><span class="p">)</span>
+<span class="go">&#39;ab¥ヲ￦○&#39;</span>
 </pre></div>
 </div>
 </section>
